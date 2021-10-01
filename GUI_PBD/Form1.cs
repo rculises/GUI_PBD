@@ -16,5 +16,11 @@ namespace GUI_PBD
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fEmpresa empresa = new fEmpresa();
+            empresa.ShowDialog();
+        }
     }
 }
