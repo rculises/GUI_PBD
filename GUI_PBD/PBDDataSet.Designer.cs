@@ -2765,14 +2765,9 @@ SELECT idAlumno, nombre, primerApellido, segundoApellido, numeroControl, eMail, 
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[AlumnoEmpresa] WHERE (([idAlumnoEmpresa] = @Original_idAlumnoEmpresa) AND ([idAlumno] = @Original_idAlumno) AND ([idEmpresa] = @Original_idEmpresa) AND ([anioInicio] = @Original_anioInicio) AND ((@IsNull_anioFin = 1 AND [anioFin] IS NULL) OR ([anioFin] = @Original_anioFin)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM AlumnoEmpresa\r\nWHERE        (idAlumnoEmpresa = @idAlumnoEmpresa)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idAlumnoEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumnoEmpresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idAlumno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEmpresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_anioInicio", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioInicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_anioFin", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioFin", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_anioFin", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioFin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idAlumnoEmpresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumnoEmpresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[AlumnoEmpresa] ([idAlumno], [idEmpresa], [anioInicio], [anioFin]) VALUES (@idAlumno, @idEmpresa, @anioInicio, @anioFin);
@@ -2784,20 +2779,16 @@ SELECT idAlumnoEmpresa, idAlumno, idEmpresa, anioInicio, anioFin FROM AlumnoEmpr
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anioFin", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioFin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[AlumnoEmpresa] SET [idAlumno] = @idAlumno, [idEmpresa] = @idEmpresa, [anioInicio] = @anioInicio, [anioFin] = @anioFin WHERE (([idAlumnoEmpresa] = @Original_idAlumnoEmpresa) AND ([idAlumno] = @Original_idAlumno) AND ([idEmpresa] = @Original_idEmpresa) AND ([anioInicio] = @Original_anioInicio) AND ((@IsNull_anioFin = 1 AND [anioFin] IS NULL) OR ([anioFin] = @Original_anioFin)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE       AlumnoEmpresa
+SET                idAlumno = @idAlumno, idEmpresa = @idEmpresa, anioInicio = @anioInicio, anioFin = @anioFin
+WHERE        (idAlumnoEmpresa = @idAlumnoEmpresa); 
 SELECT idAlumnoEmpresa, idAlumno, idEmpresa, anioInicio, anioFin FROM AlumnoEmpresa WHERE (idAlumnoEmpresa = @idAlumnoEmpresa)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idAlumno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEmpresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anioInicio", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioInicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anioFin", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioFin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idAlumnoEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumnoEmpresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idAlumno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEmpresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_anioInicio", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioInicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_anioFin", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioFin", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_anioFin", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "anioFin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idAlumnoEmpresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumnoEmpresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idAlumno", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEmpresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idEmpresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anioInicio", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "anioInicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anioFin", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "anioFin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idAlumnoEmpresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idAlumnoEmpresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2875,19 +2866,8 @@ SELECT idAlumnoEmpresa, idAlumno, idEmpresa, anioInicio, anioFin FROM AlumnoEmpr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_idAlumnoEmpresa, int Original_idAlumno, int Original_idEmpresa, short Original_anioInicio, global::System.Nullable<short> Original_anioFin) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_idAlumnoEmpresa));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_idAlumno));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_idEmpresa));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((short)(Original_anioInicio));
-            if ((Original_anioFin.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((short)(Original_anioFin.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
+        public virtual int Delete(int idAlumnoEmpresa) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(idAlumnoEmpresa));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2938,7 +2918,7 @@ SELECT idAlumnoEmpresa, idAlumno, idEmpresa, anioInicio, anioFin FROM AlumnoEmpr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int idAlumno, int idEmpresa, short anioInicio, global::System.Nullable<short> anioFin, int Original_idAlumnoEmpresa, int Original_idAlumno, int Original_idEmpresa, short Original_anioInicio, global::System.Nullable<short> Original_anioFin, int idAlumnoEmpresa) {
+        public virtual int Update(int idAlumno, int idEmpresa, short anioInicio, global::System.Nullable<short> anioFin, int idAlumnoEmpresa) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(idAlumno));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(idEmpresa));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((short)(anioInicio));
@@ -2948,19 +2928,7 @@ SELECT idAlumnoEmpresa, idAlumno, idEmpresa, anioInicio, anioFin FROM AlumnoEmpr
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_idAlumnoEmpresa));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_idAlumno));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_idEmpresa));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((short)(Original_anioInicio));
-            if ((Original_anioFin.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((short)(Original_anioFin.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(idAlumnoEmpresa));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(idAlumnoEmpresa));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2975,14 +2943,6 @@ SELECT idAlumnoEmpresa, idAlumno, idEmpresa, anioInicio, anioFin FROM AlumnoEmpr
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int idAlumno, int idEmpresa, short anioInicio, global::System.Nullable<short> anioFin, int Original_idAlumnoEmpresa, int Original_idAlumno, int Original_idEmpresa, short Original_anioInicio, global::System.Nullable<short> Original_anioFin) {
-            return this.Update(idAlumno, idEmpresa, anioInicio, anioFin, Original_idAlumnoEmpresa, Original_idAlumno, Original_idEmpresa, Original_anioInicio, Original_anioFin, Original_idAlumnoEmpresa);
         }
     }
     

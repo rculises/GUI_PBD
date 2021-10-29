@@ -28,5 +28,11 @@ namespace GUI_PBD
             fAlumno alumno = new fAlumno();
             alumno.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            fAlumnoEmpresa alumnoEmpresa = new fAlumnoEmpresa();
+            alumnoEmpresa.ShowDialog();
+        }
     }
 }
