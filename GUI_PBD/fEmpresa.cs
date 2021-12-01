@@ -154,5 +154,11 @@ namespace GUI_PBD
                 MessageBox.Show("Ocurrió el siguiente error:\n" + ex.Message.ToString());
             }
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            rEmpresa x = new rEmpresa();
+            x.ShowDialog();
+        }
     }
 }
